@@ -24,6 +24,7 @@ export type OnBlock<
 > = (
   block: OnBlockParameter<chain, includeTransactions, blockTag>,
   prevBlock: OnBlockParameter<chain, includeTransactions, blockTag> | undefined,
+  isMissedBlock: boolean,
 ) => void
 
 export type WatchBlocksParameters<
@@ -169,7 +170,7 @@ export function watchBlocks<
                     blockNumber: i,
                     includeTransactions,
                   })) as GetBlockReturnType<chain>
-                  emit.onBlock(block as any, prevBlock as any)
+                  emit.onBlock(block as any, prevBlock as any, true)
                   prevBlock = block
                 }
               }
@@ -184,7 +185,7 @@ export function watchBlocks<
               // We don't want to emit blocks in the past.
               (block.number && block.number > prevBlock.number)
             ) {
-              emit.onBlock(block as any, prevBlock as any)
+              emit.onBlock(block as any, prevBlock as any, false)
               prevBlock = block as any
             }
           } catch (err) {
@@ -216,7 +217,7 @@ export function watchBlocks<
           }).then((block) => {
             if (!active) return
             if (!emitFetched) return
-            onBlock(block as any, undefined)
+            onBlock(block as any, undefined, false)
             emitFetched = false
           })
         }
@@ -246,7 +247,7 @@ export function watchBlocks<
               includeTransactions,
             }).catch(() => {})) as GetBlockReturnType<chain>
             if (!active) return
-            onBlock(block as any, prevBlock as any)
+            onBlock(block as any, prevBlock as any, false)
             emitFetched = false
             prevBlock = block
           },

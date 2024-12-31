@@ -18,6 +18,7 @@ export type OnBlockNumberParameter = GetBlockNumberReturnType
 export type OnBlockNumberFn = (
   blockNumber: OnBlockNumberParameter,
   prevBlockNumber: OnBlockNumberParameter | undefined,
+  isMissedBlock: boolean,
 ) => void
 
 export type WatchBlockNumberParameters<
@@ -132,7 +133,7 @@ export function watchBlockNumber<
               // `emitMissed` flag is truthy, let's emit those blocks.
               if (blockNumber - prevBlockNumber > 1 && emitMissed) {
                 for (let i = prevBlockNumber + 1n; i < blockNumber; i++) {
-                  emit.onBlockNumber(i, prevBlockNumber)
+                  emit.onBlockNumber(i, prevBlockNumber, true)
                   prevBlockNumber = i
                 }
               }
@@ -141,7 +142,7 @@ export function watchBlockNumber<
             // If the next block number is greater than the previous,
             // it is not in the past, and we can emit the new block number.
             if (!prevBlockNumber || blockNumber > prevBlockNumber) {
-              emit.onBlockNumber(blockNumber, prevBlockNumber)
+              emit.onBlockNumber(blockNumber, prevBlockNumber, false)
               prevBlockNumber = blockNumber
             }
           } catch (err) {
@@ -186,7 +187,7 @@ export function watchBlockNumber<
             onData(data: any) {
               if (!active) return
               const blockNumber = hexToBigInt(data.result?.number)
-              emit.onBlockNumber(blockNumber, prevBlockNumber)
+              emit.onBlockNumber(blockNumber, prevBlockNumber, false)
               prevBlockNumber = blockNumber
             },
             onError(error: Error) {
