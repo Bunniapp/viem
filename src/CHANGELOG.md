@@ -1,5 +1,21 @@
 # viem
 
+## 2.22.1
+
+### Patch Changes
+
+- [`8cd4642ce140de0dabf09a7ac63b1cb15232bb39`](https://github.com/wevm/viem/commit/8cd4642ce140de0dabf09a7ac63b1cb15232bb39) Thanks [@jxom](https://github.com/jxom)! - **Experimental(ERC-7821):** Updated generic ordering on `execute`.
+
+## 2.22.0
+
+### Minor Changes
+
+- [#3172](https://github.com/wevm/viem/pull/3172) [`853e49e7d235785d8066f757911411f194dc1c47`](https://github.com/wevm/viem/commit/853e49e7d235785d8066f757911411f194dc1c47) Thanks [@jxom](https://github.com/jxom)! - Added `simulate` Action (`eth_simulateV1`).
+
+### Patch Changes
+
+- [`f19ceef5cd455a31629d33d9a649881e76a502be`](https://github.com/wevm/viem/commit/f19ceef5cd455a31629d33d9a649881e76a502be) Thanks [@jxom](https://github.com/jxom)! - Updated public mainnet RPC URL.
+
 ## 2.21.60
 
 ### Patch Changes
