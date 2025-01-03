@@ -37,11 +37,11 @@ test('gets latest block', async () => {
       "blobGasUsed",
       "excessBlobGas",
       "parentBeaconBlockRoot",
+      "totalDifficulty",
       "size",
       "uncles",
       "transactions",
       "withdrawals",
-      "totalDifficulty",
     ]
   `)
 })
@@ -138,7 +138,7 @@ describe('args: blockNumber', () => {
         "size": 62253n,
         "stateRoot": "0xe37f6c0612de420b2103e0a1d7ffb828fd6081e60d9edfa963f7c4a8feea54ce",
         "timestamp": 1715686967n,
-        "totalDifficulty": null,
+        "totalDifficulty": 58750003716598352816469n,
         "transactions": [
           "0x985ca9ceaecc90bded8a892e45e2127eab09746cd7dffee057fba12ee066e161",
           "0x32e57c908dc3407db0e54edaa9ed47419012ea97254c14e20111f7b5fef24eab",
@@ -400,11 +400,11 @@ describe('args: blockTag', () => {
         "blobGasUsed",
         "excessBlobGas",
         "parentBeaconBlockRoot",
+        "totalDifficulty",
         "size",
         "uncles",
         "transactions",
         "withdrawals",
-        "totalDifficulty",
       ]
     `)
   })
@@ -470,13 +470,13 @@ describe('args: blockTag', () => {
         "extraData",
         "mixHash",
         "nonce",
+        "totalDifficulty",
         "size",
         "uncles",
         "transactions",
         "baseFeePerGas",
         "blobGasUsed",
         "excessBlobGas",
-        "totalDifficulty",
       ]
     `)
   })
@@ -512,7 +512,7 @@ describe('args: hash', () => {
         "size": 56024n,
         "stateRoot": "0x115fd5eac921e6728825958b2b87da8aaf17edc0085164f11de798f6ed00abbd",
         "timestamp": 1715686979n,
-        "totalDifficulty": null,
+        "totalDifficulty": 58750003716598352816469n,
         "transactions": [
           "0x5d374a026007c13e901765497b9164d44822902463efdf7b574b10c476ee2ad6",
           "0x2762a7fb7c973e888edc457a3808d3882b5c8fc4f6c43a082d823319b126b91a",
