@@ -1,8 +1,7 @@
 {
-  "name": "viem",
+  "name": "@bunniapp/viem",
   "description": "TypeScript Interface for Ethereum",
-  "version": "2.22.2",
-  "type": "module",
+  "version": "2.22.3",
   "main": "./_cjs/index.js",
   "module": "./_esm/index.js",
   "types": "./_types/index.d.ts",
